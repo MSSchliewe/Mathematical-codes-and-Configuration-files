@@ -1,0 +1,3 @@
+Save the .m script file in the Octave working directory.
+
+convertHB2bi.m: Fits a bi‑viscosity model to a Herschel–Bulkley rheology while keeping the transition shear rate fixed: it optimizes the low‑ and high‑shear apparent viscosities and the smoothing parameter computes diagnostic metrics (RMSE, Bi multiplier, reference kinematic viscosity), and writes detailed CSV outputs and a diagnostic PNG. The output files are compatible with DualSPHysics .xml files.
