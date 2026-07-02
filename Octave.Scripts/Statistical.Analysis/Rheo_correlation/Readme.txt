@@ -1,0 +1,3 @@
+Save the .m script file in the Octave working directory.
+
+Rheo_correlation.m: Reads a CSV table of rheological test records,validates required columns (id, protocol, Cv, fine fraction, γ (minimum, maximum, and geometric mean), τy, n, K), and computes exploratory correlations and regressions to investigate relationships among rheological and sample descriptors. The script performs data cleaning, log‑transformations, Pearson and rank‑based (Spearman) correlation matrices, bootstrap confidence intervals for correlations, a partial correlation between log(K) and n controlling for Cv and fine fraction, and a robust (or ordinary least squares fallback) regression of log(τy) on Cv. It also computes bivariate summaries for log(K) and n, and writes a set of CSV outputs.
