@@ -1,0 +1,3 @@
+Save the .m script file and the helper functions in the Octave working directory.
+
+stat.m: Given a numeric sample vector, the script fits several candidate distributions (Normal, LogNormal, Exponential, Beta, optional Triangular) by moments/MLE, compares them using AIC, and selects the best model. It produces analytic summaries and percentiles for the chosen model, optional goodness‑of‑fit via KS bootstrap, parametric bootstrap confidence intervals when applicable, and a conditional outlier list based on robust IQR/MAD rules. The script also generates publication‑ready plots (histogram + fitted PDF with 95% parametric envelope, and empirical vs fitted CDF)
