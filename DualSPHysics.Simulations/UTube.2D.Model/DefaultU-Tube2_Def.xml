@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<case app="GenCase v5.4.354.01 (07-04-2025)" date="01-05-2026 15:19:24">
+    <casedef>
+        <constantsdef>
+            <lattice bound="1" fluid="1" />
+            <gravity x="0" y="0" z="-9.81" comment="Gravitational acceleration" units_comment="m/s^2" />
+            <rhop0 value="1000" comment="Reference density of the fluid" units_comment="kg/m^3" />
+            <rhopgradient value="2" comment="Initial density gradient 1:Rhop0, 2:Water column, 3:Max. water height (default=2)" />
+            <hswl value="0" auto="true" comment="Maximum still water level to calculate speedofsound using coefsound" units_comment="metres (m)" />
+            <gamma value="7" comment="Polytropic constant for water used in the state equation" />
+            <speedsystem value="0" auto="true" comment="Maximum system speed (by default the dam-break propagation is used)" />
+            <coefsound value="25.5" comment="Coefficient to multiply speedsystem" />
+            <speedsound value="0" auto="true" comment="Speed of sound to use in the simulation (by default speedofsound=coefsound*speedsystem)" />
+            <hdp value="2.495" comment="Alternative option to calculate the smoothing length (h=hdp*dp)" />
+            <cflnumber value="0.2" comment="Coefficient to multiply dt" />
+        </constantsdef>
+        <mkconfig boundcount="241" fluidcount="9" />
+        <geometry>
+            <definition dp="0.00015" units_comment="metres (m)">
+                <pointref x="0" y="0" z="0" />
+                <pointmin x="0.003" y="0.5" z="0" />
+                <pointmax x="0.05" y="0.5" z="0.8" />
+            </definition>
+            <commands>
+                <list name="GeometryForNormals">
+                    <setactive drawpoints="1" drawshapes="1" />
+                    <setshapemode>actual | bound</setshapemode>
+                    <setmkbound mk="9" />
+                    <setnormalinvert invert="true" />
+                    <!-- Wider tube -->
+                    <drawextrude closed="false">
+                        <point x="0.0348" y="0.5" z="0.62" />
+                        <point x="0.0348" y="0.5" z="0.02" />
+                        <point x="0.0332" y="0.5" z="0.01329" />
+                        <point x="0.0322" y="0.5" z="0.01161" />
+                        <point x="0.0312" y="0.5" z="0.01031" />
+                        <point x="0.0302" y="0.5" z="0.00926" />
+                        <point x="0.0292" y="0.5" z="0.0084" />
+                        <point x="0.0282" y="0.5" z="0.00767" />
+                        <point x="0.0272" y="0.5" z="0.00706" />
+                        <point x="0.0262" y="0.5" z="0.00655" />
+                        <point x="0.0252" y="0.5" z="0.00614" />
+                        <point x="0.0242" y="0.5" z="0.0058" />
+                        <point x="0.0232" y="0.5" z="0.00554" />
+                        <point x="0.0222" y="0.5" z="0.00536" />
+                        <point x="0.0212" y="0.5" z="0.00524" />
+                        <point x="0.0202" y="0.5" z="0.0052" />
+                        <point x="0.0192" y="0.5" z="0.00522" />
+                        <point x="0.0182" y="0.5" z="0.00531" />
+                        <point x="0.0172" y="0.5" z="0.00546" />
+                        <point x="0.0162" y="0.5" z="0.00569" />
+                        <point x="0.0152" y="0.5" z="0.006" />
+                        <point x="0.0142" y="0.5" z="0.00638" />
+                        <point x="0.0132" y="0.5" z="0.00685" />
+                        <point x="0.0122" y="0.5" z="0.00742" />
+                        <point x="0.0112" y="0.5" z="0.0081" />
+                        <point x="0.0102" y="0.5" z="0.00891" />
+                        <point x="0.0092" y="0.5" z="0.00988" />
+                        <point x="0.0082" y="0.5" z="0.01107" />
+                        <point x="0.0072" y="0.5" z="0.01257" />
+                        <point x="0.0062" y="0.5" z="0.01465" />
+                        <point x="0.0052" y="0.5" z="0.02" />
+                        <point x="0.0052" y="0.5" z="0.62" />
+                        <point x="0.0132" y="0.5" z="0.62" />
+                        <point x="0.0132" y="0.5" z="0.02" />
+                        <point x="0.0142" y="0.5" z="0.01645" />
+                        <point x="0.0152" y="0.5" z="0.01518" />
+                        <point x="0.0162" y="0.5" z="0.01436" />
+                        <point x="0.0172" y="0.5" z="0.0138" />
+                        <point x="0.0182" y="0.5" z="0.01344" />
+                        <point x="0.0192" y="0.5" z="0.01324" />
+                        <point x="0.0202" y="0.5" z="0.0132" />
+                        <point x="0.0212" y="0.5" z="0.0133" />
+                        <point x="0.0222" y="0.5" z="0.01356" />
+                        <point x="0.0232" y="0.5" z="0.01399" />
+                        <point x="0.0242" y="0.5" z="0.01464" />
+                        <point x="0.0252" y="0.5" z="0.0156" />
+                        <point x="0.0268" y="0.5" z="0.02" />
+                        <point x="0.0268" y="0.5" z="0.62" />
+                        <extrude x="0" y="0.02" z="0" />
+                        <layers vdp="-0.5" />
+                    </drawextrude>
+                    <shapeout file="hdp" />
+                    <resetdraw />
+                </list>
+                <mainlist>
+                    <!-- Actual geometry at dp/2 -->
+                    <runlist name="GeometryForNormals" />
+                    <!-- Boundary particles -->
+                    <setdrawmode mode="full" />
+                    <setmkbound mk="9" />
+                    <!-- Narrower tube -->
+                    <drawextrude closed="false">
+                        <point x="0.0052" y="0.5" z="0.62" />
+                        <point x="0.0052" y="0.5" z="0.02" />
+                        <point x="0.0062" y="0.5" z="0.01465" />
+                        <point x="0.0072" y="0.5" z="0.01257" />
+                        <point x="0.0082" y="0.5" z="0.01107" />
+                        <point x="0.0092" y="0.5" z="0.00988" />
+                        <point x="0.0102" y="0.5" z="0.00891" />
+                        <point x="0.0112" y="0.5" z="0.0081" />
+                        <point x="0.0122" y="0.5" z="0.00742" />
+                        <point x="0.0132" y="0.5" z="0.00685" />
+                        <point x="0.0142" y="0.5" z="0.00638" />
+                        <point x="0.0152" y="0.5" z="0.006" />
+                        <point x="0.0162" y="0.5" z="0.0057" />
+                        <point x="0.0172" y="0.5" z="0.00547" />
+                        <point x="0.0182" y="0.5" z="0.00531" />
+                        <point x="0.0192" y="0.5" z="0.00522" />
+                        <point x="0.0202" y="0.5" z="0.0052" />
+                        <point x="0.0212" y="0.5" z="0.00525" />
+                        <point x="0.0222" y="0.5" z="0.00536" />
+                        <point x="0.0232" y="0.5" z="0.00555" />
+                        <point x="0.0242" y="0.5" z="0.00581" />
+                        <point x="0.0252" y="0.5" z="0.00614" />
+                        <point x="0.0262" y="0.5" z="0.00656" />
+                        <point x="0.0272" y="0.5" z="0.00707" />
+                        <point x="0.0282" y="0.5" z="0.00768" />
+                        <point x="0.0292" y="0.5" z="0.00841" />
+                        <point x="0.0302" y="0.5" z="0.00928" />
+                        <point x="0.0312" y="0.5" z="0.01033" />
+                        <point x="0.0322" y="0.5" z="0.01162" />
+                        <point x="0.0332" y="0.5" z="0.01331" />
+                        <point x="0.0348" y="0.5" z="0.02" />
+                        <point x="0.0348" y="0.5" z="0.62" />
+                        <point x="0.0268" y="0.5" z="0.62" />
+                        <point x="0.0268" y="0.5" z="0.02" />
+                        <point x="0.0252" y="0.5" z="0.01562" />
+                        <point x="0.0242" y="0.5" z="0.01465" />
+                        <point x="0.0232" y="0.5" z="0.014" />
+                        <point x="0.0222" y="0.5" z="0.01357" />
+                        <point x="0.0212" y="0.5" z="0.01331" />
+                        <point x="0.0202" y="0.5" z="0.0132" />
+                        <point x="0.0192" y="0.5" z="0.01325" />
+                        <point x="0.0182" y="0.5" z="0.01344" />
+                        <point x="0.0172" y="0.5" z="0.0138" />
+                        <point x="0.0162" y="0.5" z="0.01436" />
+                        <point x="0.0152" y="0.5" z="0.01518" />
+                        <point x="0.0142" y="0.5" z="0.01645" />
+                        <point x="0.0132" y="0.5" z="0.02" />
+                        <point x="0.0132" y="0.5" z="0.62" />
+                        <extrude x="0" y="0.02" z="0" />
+                        <layers vdp="0,1,2" />
+                    </drawextrude>
+                    <!-- Fluid particles -->
+                    <setmkfluid mk="0" />
+                    <drawcylinder radius="0.0030" fillmode="fill">
+                        <point x="0.00906" y="0.5" z="0.03" />
+                        <point x="0.00906" y="0.5" z="0.5" />
+                    </drawcylinder>
+                    <shapeout file="" />
+                </mainlist>
+            </commands>
+        </geometry>
+        <normals active="true">
+            <norgeometry comment="Define initial configuration of normals before applying other configurations">
+                <geometryfile file="[CaseName]_hdp_Actual.vtk" comment="File with boundary geometry (VTK format)" />
+                <distanceh v="2.0" comment="Maximum orthogonal distance (H*value) to compute normals data (default=2)" />
+                <svshapes v="true" comment="Saves VTK with geometry in triangles and quads with its normals for debug (default=false)" />
+            </norgeometry>
+        </normals>
+    </casedef>
+    <execution>
+        <parameters>
+            <parameter key="SavePosDouble" value="0" comment="Saves particle position using double precision (default=0)" />
+            <parameter key="Boundary" value="2" comment="Boundary method 1:DBC, 2:mDBC (default=1)" />
+            <parameter key="SlipMode" value="1" comment="Slip mode for mDBC 1:DBC vel=0, 2:No-slip, 3:Free Slip (default=1)" />
+            <parameter key="NoPenetration" value="1" comment="Activate No-Penetration option for no-slip or free slip mDBC 0:Off, 1:On (default=0)" />
+            <parameter key="StepAlgorithm" value="2" comment="Step Algorithm 1:Verlet, 2:Symplectic (default=1)" />
+            <parameter key="VerletSteps" value="40" comment="Verlet only: Number of steps to apply Euler timestepping (default=40)" />
+            <parameter key="Kernel" value="2" comment="Interaction Kernel 1:Cubic Spline, 2:Wendland (default=2)" />
+            <parameter key="ViscoTreatment" value="3" comment="Viscosity formulation 1:Artificial, 2:Laminar+SPS, 3:Laminar (default=1)" />
+            <parameter key="Visco" value="1e-8" comment="Viscosity value. Typically 0.01 for Artificial and 1e-6 m^2/s (water kinematic viscosity) for Laminar" />
+            <parameter key="ViscoBoundFactor" value="0.0625" comment="Multiply viscosity value with boundary (default=1)" />
+            <parameter key="DensityDT" value="3" comment="Density Diffusion Term 0:None, 1:Molteni, 2:Fourtakas, 3:Fourtakas(full) (default=0)" />
+            <parameter key="DensityDTvalue" value="0.1" comment="DDT value (default=0.1)" />
+            <parameter key="Shifting" value="0" comment="Shifting mode 0:None, 1:Ignore bound, 2:Ignore fixed, 3:Full (default=0)" />
+            <parameter key="ShiftCoef" value="-2" comment="Coefficient for shifting computation (default=-2)" />
+            <parameter key="ShiftTFS" value="0" comment="Threshold to detect free surface. Typically 1.5 for 2D and 2.75 for 3D (default=0)" />
+            <parameter key="RigidAlgorithm" value="1" comment="Rigid Algorithm 0:collision-free, 1:SPH, 2:DEM, 3:Chrono (default=1)" />
+            <parameter key="FtPause" value="0.0" comment="Time to freeze the floatings at simulation start (warmup) (default=0)" units_comment="seconds" />
+            <parameter key="CoefDtMin" value="0.05" comment="Coefficient to calculate minimum time step dtmin=coefdtmin*h/speedsound (default=0.05)" />
+            <parameter key="DtIni" value="0" comment="Initial time step. Use 0 to default use (default=h/speedsound)" units_comment="seconds" />
+            <parameter key="DtMin" value="0" comment="Minimum time step. Use 0 to default use (default=coefdtmin*h/speedsound)" units_comment="seconds" />
+            <parameter key="DtFixed" value="0" comment="Fixed Dt value. Use 0 to disable (default=disabled)" units_comment="seconds" />
+            <parameter key="DtFixedFile" value="NONE" comment="Dt values are loaded from file. Use NONE to disable (default=disabled)" units_comment="milliseconds (ms)" />
+            <parameter key="DtAllParticles" value="0" comment="Velocity of particles used to calculate DT. 1:All, 0:Only fluid/floating (default=0)" />
+            <parameter key="TimeMax" value="40.0" comment="Time of simulation" units_comment="seconds" />
+            <parameter key="TimeOut" value="0.01" comment="Time out data" units_comment="seconds" />
+            <parameter key="RhopOutMin" value="700" comment="Minimum rhop valid (default=700)" units_comment="kg/m^3" />
+            <parameter key="RhopOutMax" value="1300" comment="Maximum rhop valid (default=1300)" units_comment="kg/m^3" />
+            <parameter key="WrnPartsOut" value="1" comment="Active warning according to number of out particles (default=1)" />
+            <parameter key="MinFluidStop" value="0" comment="Minimum proportion of initial fluid particles to continue the simulation 0:Never stops, 0.1:Stops when fluid drops to 10%. (default=0)" />
+            <simulationdomain comment="Defines domain of simulation (default=Uses minimum and maximum position of the generated particles)">
+                <posmin x="default" y="default" z="default" comment="e.g.: x=0.5, y=default-1, z=default-10%" />
+                <posmax x="default" y="default" z="default + 50%" />
+            </simulationdomain>
+        </parameters>
+        <particles np="178053" nb="49559" nbf="49559" mkboundfirst="10" mkfluidfirst="1">
+            <_summary>
+                <positions units_comment="metres (m)">
+                    <posmin x="0.00525" y="0.5" z="0.00525" />
+                    <posmax x="0.0348" y="0.5" z="0.61995" />
+                </positions>
+                <fixed count="49559" id="0-49558" mkcount="1" mkvalues="19" />
+                <fluid count="128494" id="49559-178052" mkcount="1" mkvalues="1" />
+            </_summary>
+            <fixed mkbound="9" mk="19" begin="0" count="49559" />
+            <fluid mkfluid="0" mk="1" begin="49559" count="128494" />
+        </particles>
+        <constants>
+            <data2d value="true" />
+            <data2dposy value="0.5" units_comment="metres (m)" />
+            <gravity x="0" y="0" z="-9.81" units_comment="m/s^2" />
+            <cflnumber value="0.2" />
+            <gamma value="7" />
+            <rhop0 value="1000" units_comment="kg/m^3" />
+            <dp value="0.00015" units_comment="metres (m)" />
+            <h value="0.00037425" units_comment="metres (m)" />
+            <b value="428255.53248" units_comment="Pascal (Pa)" />
+            <massbound value="0.0000225" units_comment="kg" />
+            <massfluid value="0.0000225" units_comment="kg" />
+        </constants>
+        <uservars>
+            <varnum name="VResId" value="0" />
+        </uservars>
+        <motion />
+        <vtkout mkboundfirst="10" mkfluidfirst="1">
+            <vtkfile name="DefaultU-Tube2_Def_hdp_Actual.vtk" mk="19" mkbound="9" />
+            <vtkfile name="DefaultU-Tube2_Def__Actual.vtk" mk="19" mkbound="9" />
+        </vtkout>
+    </execution>
+</case>
