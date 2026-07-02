@@ -1,0 +1,3 @@
+Save the .m script file in the Octave working directory.
+
+fitrheology.m: It reads a set of shear stress and shear rate pairs provided by the user and tests the curve fit against three different rheological models: Bingham, Herschel-Bulkley, and Herschel-Bulkley-Papanastasiou. The physical plausibility of the parameters resulting from the fits is verified. It reports the SSE and RMSE for each model and generates comparative plots.
