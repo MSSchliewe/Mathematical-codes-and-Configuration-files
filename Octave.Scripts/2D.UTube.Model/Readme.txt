@@ -1,0 +1,3 @@
+Save the .m script file, the helper functions, and the example files in the Octave working directory.
+
+UTube.m: Reads a .csv file containing a time series of elevations (column 1: time in seconds; column 2: elevation in meters)—obtained from a simulation of oscillating flow in a U-tube—fits it to a quadratic analytical solution, and compares the result with the theoretical elevation signal. Presents a text-based report and plots diagnostics.
